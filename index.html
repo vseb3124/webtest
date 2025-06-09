@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Test – Webové technológie (50 otázok)</title>
+  <title>Komplexný test – Webové technológie (50 otázok)</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
     fieldset { margin-bottom: 20px; }
@@ -12,31 +12,45 @@
   </style>
 </head>
 <body>
-  <h1>Test – Webové technológie (50 otázok)</h1>
+  <h1>Komplexný test – Webové technológie (50 otázok)</h1>
   <form id="quizForm">
-    <!-- Generované otázky -->
     <div id="otazky"></div>
-
     <button type="button" onclick="vyhodnotit()">Odoslať</button>
   </form>
 
   <script>
     const otazky = [
-      ["Ktorý protokol zabezpečuje prenos webových stránok?", ["FTP", "HTTP", "DNS"], "b"],
-      ["Čo znamená skratka URL?", ["Universal Route Locator", "Uniform Resource Locator", "Unique Routing Language"], "b"],
-      ["Ktorá značka obklopuje viditeľný obsah stránky?", ["<head>", "<title>", "<body>"], "c"],
-      ["Ktorý spôsob vloženia CSS je najefektívnejší pre veľké projekty?", ["Inline", "Interný", "Externý"], "c"],
-      ["Ako vypíšeš text do konzoly v JavaScripte?", ["console.text()", "log()", "console.log()"], "c"],
-      ["Čo robí addEventListener()?", ["Mení štýl prvku", "Obsluhuje udalosť", "Načíta modul"], "b"],
-      ["Čo znamená export v JavaScripte?", ["Spustenie funkcie", "Zdieľanie funkcie", "Odstránenie funkcie"], "b"],
-      ["Ktorý tag vytvára odkaz?", ["<a>", "<link>", "<href>"], "a"],
-      ["Čo znamená DOM?", ["Dátový objektový model", "Document Object Model", "Dynamic Online Model"], "b"],
-      ["Na čo slúži 'method' vo formulári?", ["určuje štýl tlačidla", "určuje spôsob odoslania dát", "vyberá cieľ servera"], "b"]
+      // [text, [a,b,c], správna]
+      ["Čo je hlavná úloha protokolu HTTP?", ["Zabezpečiť šifrovanú komunikáciu", "Prenos webových stránok", "Riadenie sietí"], "b"],
+      ["Kto vytvoril prvý webový server?", ["Bill Gates", "Tim Berners-Lee", "Mark Zuckerberg"], "b"],
+      ["Ktorý komponent nie je súčasťou architektúry klient-server?", ["Klient", "Server", "Prekladač"], "c"],
+      ["Čo znamená skratka URL?", ["Universal Routing Locator", "Uniform Resource Locator", "Unified Reference Link"], "b"],
+      ["Ktorý tag obklopuje všetok obsah HTML stránky?", ["<html>", "<body>", "<div>"], "a"],
+      ["Ktorý z nasledujúcich tagov vytvára riadok tabuľky?", ["<tr>", "<td>", "<th>"], "a"],
+      ["Aký atribút použijeme na otvorenie odkazu v novom okne?", ["target=\"_blank\"", "href=\"#\"", "colspan"], "a"],
+      ["Ktorý spôsob vloženia CSS je vhodný pre celý projekt?", ["Inline", "Interný", "Externý"], "c"],
+      ["Ako označíme triedu v CSS selektore?", ["#nazov", ".nazov", "&nazov"], "b"],
+      ["Aká je predvolená hodnota pre 'box-sizing'?", ["content-box", "border-box", "auto"], "a"],
+      ["Flexbox sa používa na...", ["Rozloženie v dvoch osiach", "Jednoduché zarovnanie v 1D", "Formulárové overovanie"], "b"],
+      ["Ako vložíme JavaScript do HTML?", ["<script src=\"...\"></script>", "<js>", "<javascript>"], "a"],
+      ["Ako vypíšeme niečo do konzoly?", ["console.print()", "log.console()", "console.log()"], "c"],
+      ["Aká premenná má blokový rozsah?", ["var", "let", "window"], "b"],
+      ["Čo robí operátor `===`?", ["Porovná hodnoty bez typu", "Porovná hodnotu a typ", "Porovná typy"], "b"],
+      ["Ako deklarujeme anonymnú funkciu?", ["function() {}", "() => {}", "obidve"], "c"],
+      ["Čo je objekt v JS?", ["Premenná typu string", "Dátová štruktúra s vlastnosťami", "Funkcia bez názvu"], "b"],
+      ["Ako deklarujeme pole?", ["let pole = {}", "let pole = []", "let pole = <>"], "b"],
+      ["Čo robí async funkcia?", ["Zastaví program", "Spustí kód paralelne", "Umožňuje await a pracuje asynchrónne"], "c"],
+      ["Čo znamená DOM?", ["Digital Output Model", "Document Object Model", "Data Over Model"], "b"],
+      ["Ako vytvoríme nový HTML prvok cez JS?", ["document.newElement()", "createElement()", "document.createElement()"], "c"],
+      ["Ako priradíme obsluhu udalosti?", ["onclick=\"\"", "addEventListener()", "onEvent()"], "b"],
+      ["Čo robí 'name' v inpute?", ["Zobrazí meno", "Zadá identifikátor pre odosielané dáta", "Mení label"], "b"],
+      ["Ktorý typ vstupu slúži na výber jednej možnosti?", ["checkbox", "radio", "text"], "b"],
+      ["Ako importujeme JS modul?", ["include \"modul.js\"", "import from 'modul.js'", "import {x} from './modul.js'"], "c"]
     ];
 
-    for (let i = 10; i < 50; i++) {
-      const base = otazky[i % otazky.length];
-      otazky.push([`${base[0]} (${i + 1})`, base[1], base[2]]);
+    while (otazky.length < 50) {
+      const base = otazky[otazky.length % 25];
+      otazky.push([`${base[0]} (opak.)`, base[1], base[2]]);
     }
 
     const container = document.getElementById("otazky");
