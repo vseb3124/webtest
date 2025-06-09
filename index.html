@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Test – Webové technológie (50 otázok)</title>
+  <title>Test – Webové technológie (10 otázok)</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
     fieldset { margin-bottom: 20px; }
@@ -12,35 +12,25 @@
   </style>
 </head>
 <body>
-  <h1>Test – Webové technológie (50 otázok)</h1>
+  <h1>Test – Webové technológie (10 otázok)</h1>
   <form id="quizForm">
     <div id="otazky"></div>
     <button type="button" onclick="vyhodnotit()">Odoslať</button>
   </form>
 
   <script>
-    const otazky = [];
-
-    function pridajOtazku(text, moznosti, spravna) {
-      otazky.push([text, moznosti, spravna]);
-    }
-
-    pridajOtazku("Čo je hlavná úloha protokolu HTTP?", ["Zabezpečiť šifrovanú komunikáciu", "Prenos webových stránok", "Riadenie sietí"], "b");
-    pridajOtazku("Čo znamená skratka URL?", ["Universal Routing Locator", "Uniform Resource Locator", "Unified Reference Link"], "b");
-    pridajOtazku("Ktorý tag obklopuje celý HTML dokument?", ["<head>", "<html>", "<body>"], "b");
-    pridajOtazku("Aký atribút sa používa na otvorenie odkazu v novom okne?", ["href=\"#\"", "target=\"_blank\"", "rel=\"noopener\""], "b");
-    pridajOtazku("Ktorý selektor v CSS označuje triedu?", ["#nazov", ".nazov", "*nazov"], "b");
-    pridajOtazku("Aká je predvolená hodnota box-sizing?", ["border-box", "content-box", "auto"], "b");
-    pridajOtazku("Ako vložíme externý CSS súbor?", ["<link rel=\"stylesheet\" href=\"style.css\">", "<style src=\"style.css\">", "<css href=\"style.css\">"], "a");
-    pridajOtazku("Ako deklarujeme premennú s blokovým rozsahom?", ["var", "let", "const"], "b");
-    pridajOtazku("Čo znamená príkaz 'use strict'?", ["Povolí neštruktúrovaný kód", "Zvýši bezpečnosť kódu", "Zakáže všetky chyby"], "b");
-    pridajOtazku("Ako vytvoríme nový HTML prvok v JavaScripte?", ["createElement()", "document.createElement()", "new HTMLElement()"], "b");
-
-    // automatické doplnenie na 50 otázok replikovaním
-    while (otazky.length < 50) {
-      const base = otazky[otazky.length % 10];
-      otazky.push([`${base[0]} (opak.)`, base[1], base[2]]);
-    }
+    const otazky = [
+      ["Čo je hlavná úloha protokolu HTTP?", ["Zabezpečiť šifrovanú komunikáciu", "Prenos webových stránok", "Riadenie sietí"], "b"],
+      ["Čo znamená skratka URL?", ["Universal Routing Locator", "Uniform Resource Locator", "Unified Reference Link"], "b"],
+      ["Ktorý tag obklopuje celý HTML dokument?", ["<head>", "<html>", "<body>"], "b"],
+      ["Aký atribút sa používa na otvorenie odkazu v novom okne?", ["href=\"#\"", "target=\"_blank\"", "rel=\"noopener\""], "b"],
+      ["Ktorý selektor v CSS označuje triedu?", ["#nazov", ".nazov", "*nazov"], "b"],
+      ["Aká je predvolená hodnota box-sizing?", ["border-box", "content-box", "auto"], "b"],
+      ["Ako vložíme externý CSS súbor?", ["<link rel=\"stylesheet\" href=\"style.css\">", "<style src=\"style.css\">", "<css href=\"style.css\">"], "a"],
+      ["Ako deklarujeme premennú s blokovým rozsahom?", ["var", "let", "const"], "b"],
+      ["Čo znamená príkaz 'use strict'?", ["Povolí neštruktúrovaný kód", "Zvýši bezpečnosť kódu", "Zakáže všetky chyby"], "b"],
+      ["Ako vytvoríme nový HTML prvok v JavaScripte?", ["createElement()", "document.createElement()", "new HTMLElement()"], "b"]
+    ];
 
     const container = document.getElementById("otazky");
     otazky.forEach((q, i) => {
@@ -81,7 +71,7 @@
           feedback.className = "feedback incorrect";
         }
       });
-      alert(`Výsledok: ${body} z 50 bodov`);
+      alert(`Výsledok: ${body} z ${otazky.length} bodov`);
     }
   </script>
 </body>
