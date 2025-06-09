@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Test – Webové technológie (10 otázok)</title>
+  <title>Test – Webové technológie (50 otázok)</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
     fieldset { margin-bottom: 20px; }
@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-  <h1>Test – Webové technológie (10 otázok)</h1>
+  <h1>Test – Webové technológie (50 otázok)</h1>
   <form id="quizForm">
     <div id="otazky"></div>
     <button type="button" onclick="vyhodnotit()">Odoslať</button>
@@ -29,7 +29,46 @@
       ["Ako môžeme pripojiť JavaScript súbor do HTML?", ["<script href=\"\">", "<script src=\"\"></script>", "<link rel=\"js\">"], "b"],
       ["Čo znamená 'const' v JavaScripte?", ["Premenná s konštantnou hodnotou", "Funkcia", "Pole"], "a"],
       ["Aká je úloha funkcie addEventListener?", ["Vytvára nové HTML prvky", "Zachytáva a spracúva udalosti", "Spúšťa štýly CSS"], "b"],
-      ["Čo je výstupom document.createElement('p')?", ["Nový odstavec HTML", "Nový objekt JSON", "Premenná typu string"], "a"]
+      ["Čo je výstupom document.createElement('p')?", ["Nový odstavec HTML", "Nový objekt JSON", "Premenná typu string"], "a"],
+      ["Ktorý protokol je zodpovedný za zasielanie e-mailov?", ["SMTP", "FTP", "HTTP"], "a"],
+      ["Čo znamená skratka CSS?", ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style Syntax"], "b"],
+      ["Ktorý HTML prvok sa používa na definovanie hlavičky tabuľky?", ["<thead>", "<tbody>", "<tfoot>"], "a"],
+      ["Ktorý atribút slúži na identifikáciu prvku v HTML?", ["class", "name", "id"], "c"],
+      ["Čo v CSS znamená 'display: flex'?", ["Použije sa flexbox model", "Zmení sa farba pozadia", "Nastaví sa veľkosť písma"], "a"],
+      ["Ako sa deklaruje premenná s dočasnou hodnotou v JS?", ["const", "var", "let"], "c"],
+      ["Čo znamená DOM?", ["Document Object Model", "Data Over Media", "Digital Output Machine"], "a"],
+      ["Ktorá metóda JavaScriptu umožňuje čakať na výsledok?", ["await", "delay", "wait"], "a"],
+      ["Čo robí metóda console.log()?", ["Vypíše správu do konzoly", "Spustí funkciu", "Zavolá alert"], "a"],
+      ["Čo je atribút 'method' v HTML form?", ["Definuje spôsob spracovania CSS", "Nastavuje metódu HTTP požiadavky", "Používa sa na šifrovanie"], "b"],
+      ["Ako sa spúšťa JavaScriptový kód pri načítaní stránky?", ["onclick", "onload", "onsubmit"], "b"],
+      ["Aký je účel značky <form>?", ["Skryje údaje", "Zoskupí vstupy a umožní ich odoslať", "Zobrazí obrázok"], "b"],
+      ["Čo robí vlastnosť 'box-sizing: border-box'?", ["Vypočíta rozmery vrátane paddingu a borderu", "Zväčší text", "Zmení pozadie"], "a"],
+      ["Aký tag použijeme pre odkaz?", ["<link>", "<a>", "<href>"], "b"],
+      ["Čo je URL?", ["Adresa zdroja na internete", "Programovací jazyk", "Protokol"], "a"],
+      ["Čo znamená skratka JS?", ["Java Setup", "JavaScript", "JSON Script"], "b"],
+      ["Ktorý tag slúži na tvorbu zoznamu s odrážkami?", ["<ul>", "<ol>", "<li>"] , "a"],
+      ["Ako označíme komentár v HTML?", ["// komentár", "<!-- komentár -->", "/* komentár */"], "b"],
+      ["Ktorý element definuje hlavičku v HTML?", ["<header>", "<head>", "<title>"], "a"],
+      ["Aký typ vstupu HTML použijeme na heslo?", ["type='text'", "type='password'", "type='hidden'"], "b"],
+      ["Aký je predvolený typ tlačidla v HTML?", ["submit", "reset", "button"], "a"],
+      ["Ako vytvoriť jednoduchú funkciu v JS?", ["function foo() {}", "let foo = => {}", "def foo():"], "a"],
+      ["Ktorý príkaz inicializuje modul v JS?", ["require", "include", "import"], "c"],
+      ["Čo znamená 'defer' v <script>?", ["Odloží vykonanie skriptu", "Zablokuje CSS", "Spustí skript viackrát"], "a"],
+      ["Aký typ premennej sa neodporúča používať?", ["let", "var", "const"], "b"],
+      ["Ako skontrolovať typ premennej v JS?", ["typeof", "typeOf", "checkType"], "a"],
+      ["Čo je JSON?", ["Formát pre výmenu dát", "Typ prehliadača", "Štruktúra CSS"], "a"],
+      ["Ktorá značka označuje hlavnú sekciu stránky?", ["<main>", "<section>", "<body>"], "a"],
+      ["Ako sa v CSS nastaví červená farba?", ["color: red;", "text: red;", "font: red;"], "a"],
+      ["Čo znamená event.preventDefault()?", ["Zastaví predvolenú akciu udalosti", "Zmaže udalosť", "Zobrazí výstrahu"], "a"],
+      ["Čo je HTML5 API pre kreslenie grafiky?", ["<canvas>", "<svg>", "<graphic>"], "a"],
+      ["Ktorý príkaz odstráni element z DOM?", ["removeChild()", "deleteNode()", "destroy()"], "a"],
+      ["Ktorá vlastnosť v CSS nastaví okraj?", ["margin", "padding", "border"], "a"],
+      ["Ktorá hodnota zobrazuje prvok ako blokový?", ["block", "inline", "flex"], "a"],
+      ["Ako sa pridáva nová trieda cez JS?", ["element.classList.add('nazov')", "element.addClass('nazov')", "element.style.class='nazov'"], "a"],
+      ["Čo spôsobí innerHTML='text'?", ["Nastaví vnútorný HTML obsah", "Zmení názov triedy", "Pridá atribút"], "a"],
+      ["Čo definuje 'media queries' v CSS?", ["Pravidlá pre rôzne zariadenia", "Vstupné polia", "Animácie"], "a"],
+      ["Čo znamená BOM v kontexte JS?", ["Browser Object Model", "Byte Order Marker", "Basic Output Method"], "a"],
+      ["Ktorý príkaz načíta modul len raz?", ["import", "require", "include"], "a"]
     ];
 
     const container = document.getElementById("otazky");
