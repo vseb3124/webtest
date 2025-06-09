@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Test – Webové technológie (50 otázok)</title>
+  <title>Test – Webové technológie (55 otázok)</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
     fieldset { margin-bottom: 20px; }
@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-  <h1>Test – Webové technológie (50 otázok)</h1>
+  <h1>Test – Webové technológie (55 otázok)</h1>
   <form id="quizForm">
     <div id="otazky"></div>
     <button type="button" onclick="vyhodnotit()">Odoslať</button>
@@ -21,22 +21,64 @@
   <script>
     const otazky = [];
 
-    // Príkladová funkcia pre zjednodušené pridávanie otázok
     function pridajOtazku(text, moznosti, spravna) {
-      otazky.push([text, moznosti, spravna]);
+      if (moznosti.length === 3) {
+        otazky.push([text, moznosti, spravna]);
+      }
     }
 
-    // Tu sa pridáva 50 rôznych otázok (skrátená ukážka prvých 5)
+    // 50 pôvodných + úprava otázky 7, 11, 37 + 5 nových otázok (spolu 55)
     pridajOtazku("Kto vytvoril World Wide Web?", ["Elon Musk", "Tim Berners-Lee", "Mark Zuckerberg"], "b");
     pridajOtazku("Čo znamená skratka HTML?", ["HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"], "a");
-    pridajOtazku("Ktorý tag sa používa na vytvorenie odkazu?", ["<a>", "<link>", "<url>"], "a");
-    pridajOtazku("Ktorá vlastnosť CSS určuje farbu textu?", ["font-color", "color", "text-color"], "b");
-    pridajOtazku("Ako vložíme externý JavaScript súbor?", ["<script href='script.js'>", "<js src='script.js'>", "<script src='script.js'></script>"], "c");
-
-    // ... pokračovanie až do 50 otázok (doplniť ďalšie otázky podľa dokumentu)
-    for (let i = 6; i <= 50; i++) {
-      pridajOtazku(`Ukážková otázka ${i}`, ["možnosť A", "možnosť B", "možnosť C"], "a");
-    }
+    pridajOtazku("Aká je úloha URL?", ["Určuje adresu zdroja na internete", "Nahrádza protokoly", "Je typ značky CSS"], "a");
+    pridajOtazku("Čo je protokol HTTP?", ["Bezpečnostný certifikát", "Komunikačný protokol webu", "Doménový jazyk"], "b");
+    pridajOtazku("Ktorý protokol zabezpečuje bezpečný prenos dát?", ["HTTP", "SMTP", "HTTPS"], "c");
+    pridajOtazku("Čo je to klient v architektúre?", ["Serverová aplikácia", "Zariadenie žiadajúce služby", "Webový prehliadač"], "b");
+    pridajOtazku("Aký je význam atribútu colspan v HTML tabuľke?", ["Zlúči bunky v riadku do jednej", "Zlúči bunky v stĺpci do jednej", "Zmení farbu bunky"], "a");
+    pridajOtazku("Na čo slúži tag <thead> v tabuľke?", ["Pre hlavičku tabuľky", "Pre päty tabuľky", "Pre obsahové bunky"], "a");
+    pridajOtazku("Čo robí atribút colspan?", ["Spája riadky", "Spája stĺpce", "Zlúči bunky do tabuľky"], "b");
+    pridajOtazku("Čo určuje <a href='#top'>?", ["Externý odkaz", "Kotvu na stránke", "Podnadpis"], "b");
+    pridajOtazku("Ktorý CSS selektor vyberie všetky elementy na stránke?", ["*", ".", "#"], "a");
+    pridajOtazku("Ako označujeme triedy v CSS?", [".nazov", "#nazov", "@nazov"], "a");
+    pridajOtazku("Čo robí hodnota border-box pri box-sizing v CSS?", ["Vypočíta veľkosť prvku vrátane paddingu a okraja", "Ignoruje výšku prvku", "Nastaví okraje mimo obsahu"], "a");
+    pridajOtazku("Na čo slúži flexbox?", ["Na rozloženie prvkov", "Na písanie textu", "Na výber farieb"], "a");
+    pridajOtazku("Ako vkladáme CSS inline?", ["style='color:red'", "css='color:red'", "design='color:red'"], "a");
+    pridajOtazku("Ako definujeme premennú v JS?", ["let meno = 'Ahoj';", "variable meno = 'Ahoj';", "define meno = 'Ahoj';"], "a");
+    pridajOtazku("Aký je výpis do konzoly?", ["console.log()", "log.console()", "write()"], "a");
+    pridajOtazku("Na čo slúži const?", ["Deklaruje nemennú premennú", "Vytvára komentár", "Upravuje štýly"], "a");
+    pridajOtazku("Čo robí operátor + pri reťazcoch?", ["Spojí ich", "Porovná ich", "Rozdelí ich"], "a");
+    pridajOtazku("Ako vyzerá funkcia v JS?", ["function nazov() {}", "fnc:nazov{}", "new function()"], "a");
+    pridajOtazku("Čo je pole v JS?", ["Zoznam hodnôt", "Typ čísla", "Premenná na štýly"], "a");
+    pridajOtazku("Čo je await v JS?", ["Čaká na výsledok asynchrónnej funkcie", "Spustí alert", "Zobrazí CSS"], "a");
+    pridajOtazku("Čo je DOM?", ["Struktúra HTML dokumentu", "Grafika stránky", "Server"], "a");
+    pridajOtazku("Ako vytvorím nový prvok?", ["document.createElement('div')", "create.element('div')", "newElement('div')"], "a");
+    pridajOtazku("Čo robí innerText?", ["Zobrazí text vo vnútri HTML prvku", "Zobrazí štýl", "Zobrazí kód"], "a");
+    pridajOtazku("Ako reagujeme na klik v JS?", ["addEventListener('click')", "onClickEvent()", "eventClick()"], "a");
+    pridajOtazku("Čo je BOM?", ["Rozhranie prehliadača (napr. okno)", "HTML knižnica", "Súborová štruktúra"], "a");
+    pridajOtazku("Na čo slúži event.preventDefault()?", ["Zabráni predvolenému správaniu", "Vytvára štýl", "Zmení URL"], "a");
+    pridajOtazku("Čo znamená input type='file' vo formulári?", ["Výber súboru", "Zápis súboru", "Zmazanie súboru"], "a");
+    pridajOtazku("Čo robí method='post' vo formulári?", ["Odošle údaje", "Zobrazí údaje", "Vymaže údaje"], "a");
+    pridajOtazku("Čo je placeholder?", ["Pomocný text vo vstupe", "Záložka stránky", "Štýl textu"], "a");
+    pridajOtazku("Ktorý typ inputu je na heslo?", ["text", "password", "secret"], "b");
+    pridajOtazku("Čo je 'use strict' v JavaScripte?", ["Aktivuje prísny režim", "Zakáže JS", "Zmení HTML"], "a");
+    pridajOtazku("Čo znamená export v module?", ["Sprístupní funkcie iným súborom", "Importuje CSS", "Načíta obrázky"], "a");
+    pridajOtazku("Aký typ modulu je moderný v HTML?", ["type='module'", "<module>", "js-type"], "a");
+    pridajOtazku("Ako vyzerá import funkcie?", ["import {nazov} from './modul.js'", "require('modul')", "export modul"], "a");
+    pridajOtazku("Čo znamená use strict v JavaScripte?", ["Zapne prísnejší režim a zachytí potenciálne chyby", "Zakáže použitie funkcií", "Načíta externý skript"], "a");
+    pridajOtazku("Čo znamená tag <br>?", ["Zalomí riadok", "Zmení farbu", "Spustí skript"], "a");
+    pridajOtazku("Čo znamená tag <hr>?", ["Vodorovná čiara", "Vloženie hlavičky", "Zvýraznenie"], "a");
+    pridajOtazku("Ako sa deklaruje reťazec v JS?", ["\"text\" alebo 'text'", "text", "(text)"], "a");
+    pridajOtazku("Ako sa definuje pole?", ["let x = [1,2,3];", "let x = (1,2,3);", "let x = {1,2,3};"], "a");
+    pridajOtazku("Ako reagujeme na kliknutie tlačidla?", ["onclick", "onhover", "oncheck"], "a");
+    pridajOtazku("Ako načítame celý formulár?", ["document.querySelector('form')", "select('form')", "getForm()"], "a");
+    pridajOtazku("Čo je required vo formulári?", ["Určuje povinné pole", "Zamkne pole", "Zobrazí len adminovi"], "a");
+    pridajOtazku("Čo robí script tag v HTML?", ["Spustí JavaScript", "Zobrazí obrázok", "Definuje CSS"], "a");
+    // + 5 nových otázok:
+    pridajOtazku("Aký je základný účel CSS?", ["Štylizácia HTML prvkov", "Tvorba databázy", "Správa servera"], "a");
+    pridajOtazku("Čo označuje selector '*' v CSS?", ["Všetky elementy", "Len divy", "Všetky ID"], "a");
+    pridajOtazku("Ktorý atribút v <form> určuje cieľovú stránku?", ["action", "target", "id"], "a");
+    pridajOtazku("Čo znamená innerHTML?", ["Získa alebo nastaví HTML obsah", "Získava ID", "Zobrazuje alert"], "a");
+    pridajOtazku("Čo robí console.error()?", ["Zobrazí chybu v konzole", "Vymaže kód", "Spustí prehliadač"], "a");
 
     const container = document.getElementById("otazky");
     otazky.forEach((q, i) => {
