@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Test – Webové technológie (50 otázok)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    fieldset { margin-bottom: 20px; }
+    .correct { color: green; }
+    .incorrect { color: red; }
+    .feedback { margin-top: 5px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Test – Webové technológie (50 otázok)</h1>
+  <form id="quizForm">
+    <!-- Generované otázky -->
+    <div id="otazky"></div>
+
+    <button type="button" onclick="vyhodnotit()">Odoslať</button>
+  </form>
+
+  <script>
+    const otazky = [
+      ["Ktorý protokol zabezpečuje prenos webových stránok?", ["FTP", "HTTP", "DNS"], "b"],
+      ["Čo znamená skratka URL?", ["Universal Route Locator", "Uniform Resource Locator", "Unique Routing Language"], "b"],
+      ["Ktorá značka obklopuje viditeľný obsah stránky?", ["<head>", "<title>", "<body>"], "c"],
+      ["Ktorý spôsob vloženia CSS je najefektívnejší pre veľké projekty?", ["Inline", "Interný", "Externý"], "c"],
+      ["Ako vypíšeš text do konzoly v JavaScripte?", ["console.text()", "log()", "console.log()"], "c"],
+      ["Čo robí addEventListener()?", ["Mení štýl prvku", "Obsluhuje udalosť", "Načíta modul"], "b"],
+      ["Čo znamená export v JavaScripte?", ["Spustenie funkcie", "Zdieľanie funkcie", "Odstránenie funkcie"], "b"],
+      ["Ktorý tag vytvára odkaz?", ["<a>", "<link>", "<href>"], "a"],
+      ["Čo znamená DOM?", ["Dátový objektový model", "Document Object Model", "Dynamic Online Model"], "b"],
+      ["Na čo slúži 'method' vo formulári?", ["určuje štýl tlačidla", "určuje spôsob odoslania dát", "vyberá cieľ servera"], "b"]
+    ];
+
+    for (let i = 10; i < 50; i++) {
+      const base = otazky[i % otazky.length];
+      otazky.push([`${base[0]} (${i + 1})`, base[1], base[2]]);
+    }
+
+    const container = document.getElementById("otazky");
+    otazky.forEach((q, i) => {
+      const fs = document.createElement("fieldset");
+      const lg = document.createElement("legend");
+      lg.textContent = `${i + 1}. ${q[0]}`;
+      fs.appendChild(lg);
+      ["a", "b", "c"].forEach((opt, idx) => {
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="radio" name="q${i + 1}" value="${opt}"> ${opt}) ${q[1][idx]}`;
+        fs.appendChild(label);
+        fs.appendChild(document.createElement("br"));
+      });
+      const span = document.createElement("div");
+      span.className = "feedback";
+      span.id = `f${i + 1}`;
+      fs.appendChild(span);
+      container.appendChild(fs);
+    });
+
+    function vyhodnotit() {
+      let body = 0;
+      otazky.forEach((q, i) => {
+        const meno = `q${i + 1}`;
+        const ozn = document.querySelector(`input[name="${meno}"]:checked`);
+        const feedback = document.getElementById(`f${i + 1}`);
+        if (ozn) {
+          if (ozn.value === q[2]) {
+            body++;
+            feedback.innerHTML = "✔ Správne";
+            feedback.className = "feedback correct";
+          } else {
+            feedback.innerHTML = `✘ Nesprávne (správna odpoveď: ${q[2]})`;
+            feedback.className = "feedback incorrect";
+          }
+        } else {
+          feedback.innerHTML = `✘ Neoznačená (správna odpoveď: ${q[2]})`;
+          feedback.className = "feedback incorrect";
+        }
+      });
+      alert(`Výsledok: ${body} z 50 bodov`);
+    }
+  </script>
+</body>
+</html>
